@@ -48,7 +48,7 @@ html.dark {
   color: var(--fg);
   border-color: var(--border);
 }
-.btn:hover { @apply bg-neutral-100 dark:bg-neutral-800/70; transform: translateY(-1px); box-shadow: 0 6px 18px rgba(0,0,0,.08); }
+.btn:hover { @apply bg-neutral-100; transform: translateY(-1px); box-shadow: 0 6px 18px rgba(0,0,0,.08); }
 .btn:active { transform: translateY(0); box-shadow: none; }
 .btn-primary {
   @apply border-transparent;
@@ -89,7 +89,7 @@ html.dark .card { background-color: var(--card); border-color: var(--border); }
   color: var(--fg);
   background-color: transparent;
 }
-.chip:hover { @apply bg-neutral-100 dark:bg-neutral-800/60; }
+.chip:hover { @apply bg-neutral-100; }
 .chip--active {
   background-color: var(--accent);
   color: var(--accent-contrast);
@@ -99,9 +99,10 @@ html.dark .chip--active { background-color: var(--accent); color: var(--accent-c
 
 /* Nav link pills */
 .link-pill {
-  @apply inline-flex items-center rounded-lg px-3 py-1.5 transition-[colors,transform] select-none;
+  @apply inline-flex items-center rounded-lg px-3 py-1.5 transition-[colors,transform] select-none font-medium focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-400/60;
+  color: var(--fg);
 }
-.link-pill:hover { @apply bg-neutral-100 dark:bg-neutral-800/70; transform: translateY(-1px); }
+.link-pill:hover { @apply bg-neutral-100; transform: translateY(-1px); }
 .link-pill:active { transform: translateY(0); }
 .link-pill--active { @apply bg-neutral-100 dark:bg-neutral-800 text-[var(--accent)];
   border: 1px solid color-mix(in oklab, var(--accent) 45%, var(--border) 55%);
@@ -134,7 +135,24 @@ html.dark .chip--active { background-color: var(--accent); color: var(--accent-c
   color: var(--fg);
   background-color: transparent;
 }
-.icon-btn:hover { @apply bg-neutral-100 dark:bg-neutral-800/70; transform: translateY(-1px); box-shadow: 0 6px 18px rgba(0,0,0,.08); }
+.icon-btn:hover { @apply bg-neutral-100; transform: translateY(-1px); box-shadow: 0 6px 18px rgba(0,0,0,.08); }
+
+/* Dark theme hover: accent‑tinted surfaces instead of white */
+.dark .btn:hover,
+.dark .icon-btn:hover,
+.dark .link-pill:hover {
+  background-color: color-mix(in oklab, var(--card) 65%, var(--accent) 35%);
+  border-color: color-mix(in oklab, var(--border) 60%, var(--accent) 40%);
+}
+.dark .chip:hover {
+  background-color: color-mix(in oklab, var(--card) 70%, var(--accent) 30%);
+  border-color: color-mix(in oklab, var(--border) 65%, var(--accent) 35%);
+}
+/* Ensure primary buttons keep strong accent on hover in dark */
+.dark .btn-primary:hover {
+  background-color: var(--accent-600);
+  color: var(--accent-contrast);
+}
 .icon-btn:active { transform: translateY(0); box-shadow: none; }
 
 /* Universal ripple/press effect for clickable UI */
@@ -209,4 +227,64 @@ html.dark .chip--active { background-color: var(--accent); color: var(--accent-c
   @apply inline-flex items-center gap-2 rounded-full border px-3 py-1 text-xs tracking-wide uppercase;
   border-color: var(--border);
   color: var(--muted);
+}
+
+/* Welcome badge animation (hero) */
+@keyframes welcome-enter {
+  0% { transform: translateX(-16px) translateY(-6px); opacity: 0; }
+  60% { transform: translateX(0) translateY(0); opacity: 1; }
+  100% { transform: translateX(0) translateY(0); opacity: 1; }
+}
+@keyframes welcome-float {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-3px); }
+  100% { transform: translateY(0); }
+}
+.welcome-banner {
+  position: relative;
+  isolation: isolate;
+  display: inline-flex;
+  align-items: center;
+  gap: .6rem;
+  padding: .66rem 1rem;
+  border-radius: 1rem;
+  font-weight: 600;
+  font-size: 1rem; /* upsize */
+  color: #fff;
+  background: linear-gradient(90deg, var(--accent), #8b5cf6 40%, #3b82f6 80%);
+  background-size: 300% 100%;
+  animation: welcome-enter 680ms ease-out both, welcome-float 6s ease-in-out 1s infinite, welcome-shimmer 7s ease-in-out infinite;
+  box-shadow: 0 10px 30px rgba(0,0,0,.15);
+}
+.welcome-banner::before {
+  content: "";
+  position: absolute;
+  inset: -4px;
+  border-radius: inherit;
+  background: conic-gradient(from 0deg, var(--accent), #8b5cf6, #3b82f6, var(--accent));
+  filter: blur(10px);
+  animation: spin-slow 12s linear infinite;
+  z-index: -1;
+  opacity: .55;
+}
+.welcome-banner svg { opacity: .95; }
+.dark .welcome-banner { color: #ffffff; }
+
+@keyframes spin-slow { to { transform: rotate(360deg); } }
+@keyframes welcome-shimmer { 0% { background-position: 0% 0; } 50% { background-position: 100% 0; } 100% { background-position: 0% 0; } }
+
+.welcome-badge {
+  @apply inline-flex items-center gap-2 rounded-full border px-4 py-1.5 text-sm shadow-sm;
+  border-color: color-mix(in oklab, var(--border) 70%, var(--accent) 30%);
+  background-color: color-mix(in oklab, var(--card) 85%, var(--accent) 15%);
+  color: var(--fg);
+  animation: welcome-enter 680ms ease-out both, welcome-float 6s ease-in-out 1s infinite;
+}
+.dark .welcome-badge {
+  background-color: color-mix(in oklab, var(--card) 78%, var(--accent) 22%);
+  border-color: color-mix(in oklab, var(--border) 60%, var(--accent) 40%);
+}
+@media (prefers-reduced-motion: reduce) {
+  .welcome-badge { animation: welcome-enter 380ms ease-out both; }
+  .welcome-banner { animation: welcome-enter 380ms ease-out both; }
 }

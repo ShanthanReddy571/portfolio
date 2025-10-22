@@ -22,7 +22,7 @@ export default function Nav() {
           <Link href="/" aria-label="Go home"><Logo /></Link>
           <div className="hidden sm:block leading-tight">
             <Link href="/" className="font-semibold tracking-tight">Shanthan Reddy Singadi</Link>
-            {/* <div className="text-xs text-neutral-500 dark:text-neutral-400">Full-Stack / Next.js Developer</div> */}
+            <div className="text-xs text-neutral-500 dark:text-neutral-400">Full-Stack | Next.js | TypeScript</div>
           </div>
         </div>
 
@@ -35,8 +35,8 @@ export default function Nav() {
                 href={href}
                 className={`link-pill text-sm ${
                   active
-                    ? "link-pill--active"
-                    : "text-neutral-600 hover:text-neutral-900 dark:text-neutral-300 dark:hover:text-white"
+                    ? "link-pill--active text-[var(--accent)]"
+                    : "text-neutral-800 hover:text-neutral-900 dark:text-neutral-200 dark:hover:text-white"
                 }`}
               >
                 <span className={`link-underline ${active ? 'link-underline--active' : ''}`}>{label}</span>

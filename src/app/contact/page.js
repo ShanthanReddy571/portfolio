@@ -94,20 +94,7 @@ export default function ContactPage() {
                 </div>
               </div>
 
-              <div className="flex items-center justify-between gap-3 rounded-lg border p-3 transition-colors hover:border-[var(--accent)]">
-                <div className="flex items-center gap-3">
-                  <div className="icon-btn h-8 w-8">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden>
-                      <path d="M12 .5a12 12 0 0 0-3.79 23.4c.6.1.82-.26.82-.58v-2.1c-3.34.73-4.04-1.61-4.04-1.61-.55-1.41-1.34-1.79-1.34-1.79-1.1-.75.08-.74.08-.74 1.22.08 1.86 1.25 1.86 1.25 1.08 1.84 2.82 1.31 3.51 1 .11-.78.42-1.31.76-1.61-2.67-.31-5.48-1.34-5.48-5.98 0-1.32 .47-2.39 1.24-3.23-.12-.31-.54-1.56 .12-3.25 0 0 1.02-.33 3.34 1.23a11.6 11.6 0 0 1 6.08 0c2.31-1.56 3.33-1.23 3.33-1.23 .66 1.69 .24 2.94 .12 3.25 .77 .84 1.23 1.91 1.23 3.23 0 4.65-2.81 5.66-5.49 5.97 .43 .37 .81 1.1 .81 2.22v3.3c0 .32 .21 .69 .82 .58A12 12 0 0 0 12 .5Z"/>
-                    </svg>
-                  </div>
-                  <div>
-                    <div className="text-sm opacity-70">GitHub</div>
-                    <a href="https://github.com/ShanthanReddy571" target="_blank" rel="noreferrer" className="text-sm font-medium hover:underline">@ShanthanReddy571</a>
-                  </div>
-                </div>
-                <a href="https://github.com/ShanthanReddy571" target="_blank" rel="noreferrer" className="btn text-xs">Open</a>
-              </div>
+              {/* Removed GitHub block as requested */}
 
               <div className="flex items-center justify-between gap-3 rounded-lg border p-3 transition-colors hover:border-[var(--accent)]">
                 <div className="flex items-center gap-3">
@@ -118,10 +105,10 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <div className="text-sm opacity-70">LinkedIn</div>
-                    <a href="www.linkedin.com/in/shanthan-reddy-b503901b5" target="_blank" rel="noreferrer" className="text-sm font-medium hover:underline">Connect on LinkedIn</a>
+                    <a href="https://www.linkedin.com/in/shanthan-reddy-b503901b5" target="_blank" rel="noreferrer" className="text-sm font-medium hover:underline">Connect on LinkedIn</a>
                   </div>
                 </div>
-                <a href="https://www.linkedin.com/" target="_blank" rel="noreferrer" className="btn text-xs">Open</a>
+                <a href="https://www.linkedin.com/in/shanthan-reddy-b503901b5" target="_blank" rel="noreferrer" className="btn text-xs">Open</a>
               </div>
             </div>
 
@@ -217,4 +204,3 @@ export default function ContactPage() {
     </Section>
   );
 }
-

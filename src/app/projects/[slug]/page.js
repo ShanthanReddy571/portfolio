@@ -8,6 +8,10 @@ export function generateStaticParams() {
   return getAllProjectSlugs().map((slug) => ({ slug }));
 }
 
+// Ensure static generation for detail pages in Vercel builds
+export const dynamic = "force-static";
+export const dynamicParams = false;
+
 export function generateMetadata({ params }) {
   const project = getProjectBySlug(params.slug);
   if (!project) return { title: "Project" };
@@ -227,4 +231,3 @@ export default function ProjectDetail({ params }) {
     </Section>
   );
 }
-

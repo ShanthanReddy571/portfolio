@@ -1,8 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: 'standalone',
+  // Let Vercel handle its optimized serverless output. Standalone is for self-hosting.
   images: {
-    // using local public/ images; allow SVG in Image component
     dangerouslyAllowSVG: true,
   },
 };

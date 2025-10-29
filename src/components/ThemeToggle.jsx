@@ -1,20 +1,40 @@
 'use client';
-import { useTheme } from 'next-themes';
 import { useEffect, useState } from 'react';
 
 export default function ThemeToggle() {
-  const { theme, setTheme, resolvedTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
-  useEffect(() => setMounted(true), []);
+  const [isDark, setIsDark] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+    try {
+      const html = document.documentElement;
+      const stored = localStorage.getItem('theme');
+      // Default to dark when nothing stored yet
+      const initial = stored || 'dark';
+      const dark = initial === 'dark';
+      setIsDark(dark);
+      if (dark) html.classList.add('dark');
+      else html.classList.remove('dark');
+    } catch {}
+  }, []);
+
   if (!mounted) return null;
-  const current = resolvedTheme || theme || 'light';
-  const isDark = current === 'dark';
+
+  const toggle = () => {
+    const nextDark = !isDark;
+    setIsDark(nextDark);
+    const html = document.documentElement;
+    if (nextDark) html.classList.add('dark');
+    else html.classList.remove('dark');
+    try { localStorage.setItem('theme', nextDark ? 'dark' : 'light'); } catch {}
+  };
 
   return (
     <button
       type="button"
       aria-label={isDark ? 'Switch to light theme' : 'Switch to dark theme'}
-      onClick={() => setTheme(isDark ? 'light' : 'dark')}
+      onClick={toggle}
       className={`theme-toggle ${isDark ? 'theme-toggle--dark' : 'theme-toggle--light'}`}
     >
       <span className="theme-toggle__indicator" aria-hidden />
@@ -32,4 +52,3 @@ export default function ThemeToggle() {
     </button>
   );
 }
-

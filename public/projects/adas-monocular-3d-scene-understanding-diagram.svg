@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#0f172a"/>
+  <g fill="#94a3b8">
+    <rect x="80" y="140" width="220" height="80" rx="8"/>
+    <rect x="360" y="140" width="220" height="80" rx="8"/>
+    <rect x="640" y="140" width="220" height="80" rx="8"/>
+    <rect x="920" y="140" width="220" height="80" rx="8"/>
+  </g>
+  <g stroke="#22d3ee" stroke-width="4" fill="none">
+    <path d="M300 180H360"/>
+    <path d="M580 180H640"/>
+    <path d="M860 180H920"/>
+  </g>
+  <g fill="#e2e8f0" font-size="24" font-family="Segoe UI, Roboto, Arial">
+    <text x="110" y="192">Frames</text>
+    <text x="390" y="192">Depth</text>
+    <text x="670" y="192">Detections</text>
+    <text x="950" y="192">BEV / 3D</text>
+  </g>
+</svg>
+

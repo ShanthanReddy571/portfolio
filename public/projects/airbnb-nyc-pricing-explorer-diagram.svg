@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#0f172a"/>
+  <g fill="#94a3b8">
+    <rect x="200" y="260" width="240" height="70" rx="8"/>
+    <rect x="500" y="260" width="240" height="70" rx="8"/>
+    <rect x="800" y="260" width="200" height="70" rx="8"/>
+  </g>
+  <g stroke="#22d3ee" stroke-width="4" fill="none">
+    <path d="M440 295H500"/>
+    <path d="M740 295H800"/>
+  </g>
+  <g fill="#e2e8f0" font-size="20" font-family="Segoe UI, Roboto, Arial">
+    <text x="250" y="304">FastAPI</text>
+    <text x="560" y="304">Postgres</text>
+    <text x="840" y="304">Next.js</text>
+  </g>
+</svg>
+

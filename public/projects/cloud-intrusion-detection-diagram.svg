@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#0f172a"/>
+  <g fill="#94a3b8">
+    <rect x="80" y="220" width="240" height="70" rx="8"/>
+    <rect x="380" y="220" width="240" height="70" rx="8"/>
+    <rect x="680" y="220" width="240" height="70" rx="8"/>
+    <rect x="980" y="220" width="140" height="70" rx="8"/>
+  </g>
+  <g stroke="#22d3ee" stroke-width="4" fill="none">
+    <path d="M320 255H380"/>
+    <path d="M620 255H680"/>
+    <path d="M920 255H980"/>
+  </g>
+  <g fill="#e2e8f0" font-size="22" font-family="Segoe UI, Roboto, Arial">
+    <text x="120" y="264">Ingest</text>
+    <text x="430" y="264">Features</text>
+    <text x="735" y="264">Inference</text>
+    <text x="1005" y="264">Alerts</text>
+  </g>
+</svg>
+

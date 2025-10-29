@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#0f172a"/>
+  <g fill="#94a3b8">
+    <rect x="200" y="260" width="220" height="70" rx="8"/>
+    <rect x="470" y="260" width="260" height="70" rx="8"/>
+    <rect x="770" y="260" width="230" height="70" rx="8"/>
+  </g>
+  <g stroke="#22d3ee" stroke-width="4" fill="none">
+    <path d="M420 295H470"/>
+    <path d="M730 295H770"/>
+  </g>
+  <g fill="#e2e8f0" font-size="20" font-family="Segoe UI, Roboto, Arial">
+    <text x="230" y="304">Build</text>
+    <text x="540" y="304">Deploy</text>
+    <text x="820" y="304">Scale/Observe</text>
+  </g>
+</svg>
+

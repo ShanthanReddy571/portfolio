@@ -1,29 +1,11 @@
 import Section from "../../components/Section";
 import Link from "next/link";
+import SkillsBoard from "../../components/SkillsBoard";
 
 export const metadata = {
   title: "Skills",
-  description: "Skills and tools I use to build modern web apps.",
+  description: "Skills and tools I use to build modern, scalable systems.",
 };
-
-const GROUPS = [
-  {
-    title: "Frontend",
-    items: ["React", "Next.js", "TypeScript", "Tailwind", "Zustand", "Redux", "Framer Motion"],
-  },
-  {
-    title: "Backend",
-    items: ["Node.js", "Express", "Prisma", "PostgreSQL", "MongoDB", "REST", "tRPC"],
-  },
-  {
-    title: "Cloud",
-    items: ["AWS", "Vercel", "Docker", "CI/CD"],
-  },
-  {
-    title: "Tools",
-    items: ["Git", "GitHub Actions", "Jest", "Playwright", "Figma"],
-  },
-];
 
 export default function SkillsPage() {
   return (
@@ -39,20 +21,7 @@ export default function SkillsPage() {
         </Link>
       }
     >
-      <div className="grid gap-6 sm:grid-cols-2">
-        {GROUPS.map((g) => (
-          <div key={g.title}>
-            <h3 className="text-sm font-semibold tracking-wide opacity-70">{g.title}</h3>
-            <div className="mt-3 flex flex-wrap gap-2">
-              {g.items.map((s) => (
-                <span key={s} className="chip">
-                  {s}
-                </span>
-              ))}
-            </div>
-          </div>
-        ))}
-      </div>
+      <SkillsBoard />
     </Section>
   );
 }

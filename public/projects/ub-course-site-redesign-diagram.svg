@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#0f172a"/>
+  <g fill="#94a3b8">
+    <rect x="160" y="250" width="240" height="70" rx="8"/>
+    <rect x="460" y="250" width="240" height="70" rx="8"/>
+    <rect x="760" y="250" width="280" height="70" rx="8"/>
+  </g>
+  <g stroke="#22d3ee" stroke-width="4" fill="none">
+    <path d="M400 285H460"/>
+    <path d="M700 285H760"/>
+  </g>
+  <g fill="#e2e8f0" font-size="20" font-family="Segoe UI, Roboto, Arial">
+    <text x="190" y="294">Code‑split</text>
+    <text x="520" y="294">Assets</text>
+    <text x="820" y="294">A11y & Perf</text>
+  </g>
+</svg>
+

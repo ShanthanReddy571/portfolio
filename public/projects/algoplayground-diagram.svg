@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#0f172a"/>
+  <g fill="#94a3b8">
+    <rect x="220" y="260" width="240" height="70" rx="8"/>
+    <rect x="520" y="260" width="240" height="70" rx="8"/>
+    <rect x="820" y="260" width="160" height="70" rx="8"/>
+  </g>
+  <g stroke="#22d3ee" stroke-width="4" fill="none">
+    <path d="M460 295H520"/>
+    <path d="M760 295H820"/>
+  </g>
+  <g fill="#e2e8f0" font-size="20" font-family="Segoe UI, Roboto, Arial">
+    <text x="260" y="304">Workers</text>
+    <text x="580" y="304">Simulation</text>
+    <text x="850" y="304">Canvas</text>
+  </g>
+</svg>
+

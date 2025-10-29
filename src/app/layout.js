@@ -7,8 +7,8 @@ const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
 
 export const metadata = {
   title: {
-    default: "Shanthan Reddy Singadi · Portfolio",
-    template: "%s · Shanthan Reddy Singadi",
+    default: "Shanthan Reddy Singadi • Portfolio",
+    template: "%s • Shanthan Reddy Singadi",
   },
   description: "Full-Stack / Next.js Developer portfolio.",
   metadataBase: new URL(baseUrl),
@@ -16,13 +16,13 @@ export const metadata = {
   openGraph: {
     type: "website",
     url: baseUrl,
-    title: "Shanthan Reddy Singadi · Portfolio",
+    title: "Shanthan Reddy Singadi • Portfolio",
     description: "Clean, fast web apps with Next.js and TypeScript.",
     siteName: "Shanthan Reddy Singadi",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Shanthan Reddy Singadi · Portfolio",
+    title: "Shanthan Reddy Singadi • Portfolio",
     description: "Clean, fast web apps with Next.js and TypeScript.",
   },
   icons: { icon: "/favicon.ico" },
@@ -44,3 +44,4 @@ export default function RootLayout({ children }) {
     </html>
   );
 }
+

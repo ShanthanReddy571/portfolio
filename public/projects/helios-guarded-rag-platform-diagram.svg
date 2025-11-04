@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#0f172a"/>
+
+  <!-- boxes -->
+  <g fill="#1f2937" stroke="#22d3ee" stroke-width="2">
+    <rect x="90" y="160" width="200" height="80" rx="10"/>
+    <rect x="330" y="160" width="220" height="80" rx="10"/>
+    <rect x="600" y="160" width="220" height="80" rx="10"/>
+    <rect x="870" y="160" width="240" height="80" rx="10"/>
+  </g>
+  <g fill="#94a3b8" font-size="18" font-family="Segoe UI, Roboto, Arial">
+    <text x="120" y="206">Ingestion</text>
+    <text x="360" y="206">Chunking + Embeddings</text>
+    <text x="640" y="206">Hybrid Retrieval</text>
+    <text x="900" y="206">Guarded Generation</text>
+  </g>
+  <g stroke="#38bdf8" stroke-width="4" fill="none">
+    <path d="M290 200H330"/>
+    <path d="M550 200H600"/>
+    <path d="M820 200H870"/>
+  </g>
+
+  <!-- second row -->
+  <g fill="#1f2937" stroke="#22d3ee" stroke-width="2">
+    <rect x="320" y="360" width="240" height="80" rx="10"/>
+    <rect x="590" y="360" width="240" height="80" rx="10"/>
+  </g>
+  <g fill="#94a3b8" font-size="18" font-family="Segoe UI, Roboto, Arial">
+    <text x="280" y="406">Reranker + Tools</text>
+    <text x="580" y="406">Streaming UI + Citations</text>
+  </g>
+  <g stroke="#38bdf8" stroke-width="4" fill="none">
+    <path d="M440 200V360"/>
+    <path d="M710 200V360"/>
+  </g>
+</svg>

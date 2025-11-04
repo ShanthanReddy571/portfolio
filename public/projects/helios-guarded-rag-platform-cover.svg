@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <!-- Match the other cards: smooth teal→blue→indigo gradient -->
+    <linearGradient id="coverGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#10b981"/>
+      <stop offset="55%" stop-color="#06b6d4"/>
+      <stop offset="100%" stop-color="#6366f1"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#coverGrad)"/>
+
+  <!-- Framed panel and simple lines like other covers -->
+  <g opacity="0.6" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round">
+    <rect x="130" y="120" width="940" height="360" rx="14"/>
+    <path d="M220 300h360"/>
+    <path d="M220 330h240"/>
+  </g>
+
+  <!-- Title at bottom-left in white, consistent with others -->
+  <text x="100" y="510" fill="#ffffff" font-size="34" font-family="Segoe UI, Roboto, Arial" font-weight="700">Helios Guarded RAG Platform</text>
+</svg>

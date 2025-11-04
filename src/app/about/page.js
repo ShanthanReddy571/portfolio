@@ -65,7 +65,7 @@ export default function AboutPage() {
         <div className="mt-4 flex flex-wrap items-center gap-3">
           <Link href="/contact" className="btn btn-primary">Let’s work together</Link>
           <Link href="/experience" className="btn btn-ghost">See full experience</Link>
-          <span className="badge">NYC • Open to relocate</span>
+          <span className="badge">Seattle - Open to relocate</span>
         </div>
       </div>
 
@@ -80,7 +80,7 @@ export default function AboutPage() {
           <div className="mt-4 grid grid-cols-3 gap-3 text-sm">
             <div className="card p-3"><span className="block text-xs opacity-70">Experience</span><span>3+ yrs</span></div>
             <div className="card p-3"><span className="block text-xs opacity-70">Projects</span><span>15+ shipped</span></div>
-            <div className="card p-3"><span className="block text-xs opacity-70">Location</span><span>NYC · Open to relocate</span></div>
+            <div className="card p-3"><span className="block text-xs opacity-70">Location</span><span>Seattle - Open to relocate</span></div>
           </div>
         </div>
         <div className="card p-6">
@@ -125,11 +125,14 @@ export default function AboutPage() {
           <ul className="mt-2 space-y-2 text-sm">
             <li>Exploring advanced Next.js patterns, edge functions, and DX tooling.</li>
             <li>Deepening ML/vision projects with CUDA + PyTorch.</li>
-            <li>Open to impactful full‑stack roles (NYC · Remote).</li>
+            <li>Open to impactful full-stack roles (Seattle - Remote).</li>
           </ul>
         </div>
       </div>
     </Section>
   );
 }
+
+
+
 

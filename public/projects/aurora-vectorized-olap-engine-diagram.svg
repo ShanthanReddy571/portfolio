@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#0f172a"/>
+  <g fill="#0f172a" stroke="#22d3ee" stroke-width="2">
+    <rect x="80" y="150" width="240" height="80" rx="10"/>
+    <rect x="360" y="150" width="240" height="80" rx="10"/>
+    <rect x="640" y="150" width="240" height="80" rx="10"/>
+    <rect x="920" y="150" width="200" height="80" rx="10"/>
+  </g>
+  <g stroke="#38bdf8" stroke-width="4" fill="none">
+    <path d="M320 190H360"/>
+    <path d="M600 190H640"/>
+    <path d="M880 190H920"/>
+  </g>
+  <g fill="#94a3b8" font-size="18" font-family="Segoe UI, Roboto, Arial" text-anchor="middle">
+    <text x="200" y="196">Substrait Plan</text>
+    <text x="480" y="196">Planner/CBO</text>
+    <text x="760" y="196">Pipelines</text>
+    <text x="1020" y="196">Execution</text>
+  </g>
+
+  <!-- vertical connectors to bottom boxes -->
+  <g stroke="#38bdf8" stroke-width="4" fill="none">
+    <path d="M480 230V360"/>
+    <path d="M760 230V360"/>
+  </g>
+  <g fill="#0f172a" stroke="#22d3ee" stroke-width="2">
+    <rect x="360" y="360" width="240" height="80" rx="10"/>
+    <rect x="640" y="360" width="240" height="80" rx="10"/>
+  </g>
+  <g fill="#94a3b8" font-size="18" font-family="Segoe UI, Roboto, Arial" text-anchor="middle">
+    <text x="480" y="406">Vectorized Operators</text>
+    <text x="760" y="406">Parquet IO + Pushdown</text>
+  </g>
+</svg>
+

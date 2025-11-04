@@ -5,7 +5,7 @@ export const ALL_PROJECTS = [
     description:
       "Depth estimation, lane detection, BEV rendering, and 3D boxes with CUDA‑accelerated PyTorch3D and Open3D.",
     tags: ["PyTorch", "CUDA", "OpenCV", "YOLO", "3D", "HPC"],
-    live: "#",
+    live: "https://shanthan-portfolio.vercel.app/",
     repo: "#",
     image: "/projects/adas-monocular-3d-scene-understanding.svg",
     details: {

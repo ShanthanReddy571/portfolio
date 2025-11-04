@@ -44,13 +44,13 @@ export default function Nav() {
           })}
         </div>
 
-        <div className="ml-auto flex items-center gap-2">
+        {/* <div className="ml-auto flex items-center gap-2">
           <button aria-label="Open menu" className="icon-btn sm:hidden" onClick={() => setOpen(true)}>
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
               <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
             </svg>
           </button>
-        </div>
+        </div> */}
       </nav>
 
       {/* Mobile visible link row (scrollable) */}
@@ -73,7 +73,7 @@ export default function Nav() {
         </div>
       </div>
 
-      {open && (
+      {/* {open && (
         <div className="fixed inset-0 z-50" aria-modal="true" role="dialog">
           <div className="absolute inset-0 bg-black/40" onClick={() => setOpen(false)} />
           <div className="card absolute right-0 top-0 h-full w-72 max-w-[85vw] p-6">
@@ -95,10 +95,9 @@ export default function Nav() {
                 </Link>
               ))}
             </div>
-            {/* Social icons removed from mobile menu per request */}
           </div>
         </div>
-      )}
+      )} */}
     </header>
   );
 }

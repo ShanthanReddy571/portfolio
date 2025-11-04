@@ -1,25 +1,28 @@
 import Section from "../../../components/Section";
 import Link from "next/link";
 import Image from "next/image";
-import { getAllProjectSlugs, getProjectBySlug } from "../../../data/projects";
+import { ALL_PROJECTS } from "../../../data/projects";
+import { getVisibleProjectSlugsFrom, getProjectBySlugFrom } from "../../../data/project-overrides";
 import { notFound } from "next/navigation";
 
 export function generateStaticParams() {
-  return getAllProjectSlugs().map((slug) => ({ slug }));
+  return getVisibleProjectSlugsFrom(ALL_PROJECTS).map((slug) => ({ slug }));
 }
 
 // Ensure static generation for detail pages in Vercel builds
 export const dynamic = "force-static";
 export const dynamicParams = false;
 
-export function generateMetadata({ params }) {
-  const project = getProjectBySlug(params.slug);
+export async function generateMetadata({ params }) {
+  const { slug } = await params;
+  const project = getProjectBySlugFrom(ALL_PROJECTS, slug);
   if (!project) return { title: "Project" };
   return { title: project.title, description: project.description };
 }
 
-export default function ProjectDetail({ params }) {
-  const project = getProjectBySlug(params.slug);
+export default async function ProjectDetail({ params }) {
+  const { slug } = await params;
+  const project = getProjectBySlugFrom(ALL_PROJECTS, slug);
   if (!project) return notFound();
 
   const { title, description, image, tags = [], details = {}, live, repo } = project;
@@ -61,7 +64,11 @@ export default function ProjectDetail({ params }) {
           <div className="card overflow-hidden">
             <div className="relative aspect-video w-full">
               {image ? (
-                <Image src={image} alt={`${title} cover`} fill className="object-cover" />
+                image.endsWith?.(".svg") ? (
+                  <img src={image} alt={`${title} cover`} className="absolute inset-0 h-full w-full object-cover" />
+                ) : (
+                  <Image src={image} alt={`${title} cover`} fill sizes="(min-width:1024px) 66vw, 100vw" className="object-cover" />
+                )
               ) : (
                 <div className="h-full w-full bg-gradient-to-br from-neutral-200 to-neutral-100 dark:from-neutral-700 dark:to-neutral-900" />
               )}
@@ -78,7 +85,11 @@ export default function ProjectDetail({ params }) {
           {diagram && (
             <div className="mt-6 card overflow-hidden">
               <div className="relative aspect-video w-full">
-                <Image src={diagram} alt={`${title} diagram`} fill className="object-cover" />
+                {diagram.endsWith?.(".svg") ? (
+                  <img src={diagram} alt={`${title} diagram`} className="absolute inset-0 h-full w-full object-cover" />
+                ) : (
+                  <Image src={diagram} alt={`${title} diagram`} fill sizes="(min-width:1024px) 66vw, 100vw" className="object-cover" />
+                )}
               </div>
             </div>
           )}

@@ -3,7 +3,7 @@ export default function Footer() {
   return (
     <footer className="border-t border-neutral-200/60 text-sm text-neutral-600 dark:text-neutral-400 dark:border-neutral-800">
       <div className="h-px w-full bg-gradient-to-r from-[var(--accent)]/40 via-transparent to-[var(--accent)]/40" />
-      <div className="container mx-auto max-w-6xl py-8">
+      <div className="container mx-auto max-w-6xl py-8 px-4 sm:px-6 safe-x safe-bottom">
         <div className="flex items-center justify-between gap-4">
           <div className="text-xs sm:text-sm opacity-70">© {year} Shanthan Reddy Singadi. Built with Next.js + Tailwind.</div>
           <div className="flex items-center gap-2">

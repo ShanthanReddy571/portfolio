@@ -35,9 +35,23 @@ export default function ProjectsPage() {
         </p>
       </div>
 
-      <div className="mt-4 flex items-center justify-between gap-4">
-        <p className="opacity-80 text-sm">Filter by tag</p>
-        <TagFilter tags={allTags} selected={selected} onChange={setSelected} />
+      <div className="mt-4 space-y-2">
+        <div className="flex items-center justify-between gap-2">
+          <p className="opacity-80 text-sm nowrap">Filter by tag</p>
+          <button
+            type="button"
+            onClick={() => setSelected([])}
+            disabled={selected.length === 0}
+            className={`btn ${selected.length ? 'btn-primary' : 'btn-ghost'} text-xs disabled:opacity-50`}
+          >
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+              <line x1="18" y1="6" x2="6" y2="18"/>
+              <line x1="6" y1="6" x2="18" y2="18"/>
+            </svg>
+            Clear
+          </button>
+        </div>
+        <TagFilter hideClear tags={allTags} selected={selected} onChange={setSelected} />
       </div>
       <div className="mt-6 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {filtered.map((p) => (

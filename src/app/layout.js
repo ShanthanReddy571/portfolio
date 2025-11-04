@@ -2,7 +2,6 @@ import "./globals.css";
 import Nav from "../components/Nav";
 import Footer from "../components/Footer";
 import { ThemeProvider } from "../components/theme-provider";
-import Script from "next/script";
 import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 
@@ -31,14 +30,22 @@ export const metadata = {
   icons: { icon: "/favicon.ico" },
 };
 
+// Mobile viewport and theme-color for better PWA-style integration
+export const viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 5,
+  viewportFit: 'cover',
+  themeColor: [
+    { media: '(prefers-color-scheme: light)', color: '#ffffff' },
+    { media: '(prefers-color-scheme: dark)', color: '#0f1115' },
+  ],
+};
+
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" className="dark" suppressHydrationWarning>
       <body className="min-h-dvh bg-white text-neutral-900 antialiased dark:!bg-neutral-950 dark:!text-neutral-100">
-        {/* Initialize theme before React hydrates to avoid flash; defaults to dark */}
-        <Script id="theme-init" strategy="beforeInteractive">
-          {`(function(){try{var t=localStorage.getItem('theme')||'dark';if(t==='dark'){document.documentElement.classList.add('dark');}else{document.documentElement.classList.remove('dark');}}catch(e){document.documentElement.classList.add('dark');}})();`}
-        </Script>
         <ThemeProvider>
           <a href="#main" className="fixed left-3 top-3 z-50 rounded-md border bg-[var(--card)] px-3 py-2 text-sm opacity-0 focus:opacity-100">Skip to content</a>
           <div className="flex min-h-dvh flex-col">

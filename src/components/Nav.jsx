@@ -2,7 +2,6 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
-import ThemeToggle from "./ThemeToggle";
 import Logo from "./Logo";
 
 export default function Nav() {
@@ -17,7 +16,7 @@ export default function Nav() {
   ];
   return (
     <header className="app-navbar sticky top-0 z-40">
-      <nav className="container mx-auto max-w-6xl flex items-center gap-3 py-3">
+      <nav className="container mx-auto max-w-6xl flex items-center gap-3 py-3 px-4 sm:px-6 safe-x">
         <div className="flex items-center gap-3">
           <Link href="/" aria-label="Go home"><Logo /></Link>
           <div className="hidden sm:block leading-tight">
@@ -46,7 +45,6 @@ export default function Nav() {
         </div>
 
         <div className="ml-auto flex items-center gap-2">
-          <ThemeToggle />
           <button aria-label="Open menu" className="icon-btn sm:hidden" onClick={() => setOpen(true)}>
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
               <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
@@ -55,10 +53,30 @@ export default function Nav() {
         </div>
       </nav>
 
+      {/* Mobile visible link row (scrollable) */}
+      <div className="container mx-auto max-w-6xl px-4 sm:hidden pb-2">
+        <div className="flex gap-2 overflow-x-auto no-scrollbar">
+          {links.map(({ href, label }) => {
+            const active = pathname?.startsWith(href);
+            return (
+              <Link
+                key={href}
+                href={href}
+                className={`link-pill text-sm whitespace-nowrap ${
+                  active ? 'link-pill--active text-[var(--accent)]' : 'text-neutral-200'
+                }`}
+              >
+                <span className={`link-underline ${active ? 'link-underline--active' : ''}`}>{label}</span>
+              </Link>
+            );
+          })}
+        </div>
+      </div>
+
       {open && (
         <div className="fixed inset-0 z-50" aria-modal="true" role="dialog">
           <div className="absolute inset-0 bg-black/40" onClick={() => setOpen(false)} />
-          <div className="card absolute right-0 top-0 h-full w-72 p-6">
+          <div className="card absolute right-0 top-0 h-full w-72 max-w-[85vw] p-6">
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-2">
                 <Logo />

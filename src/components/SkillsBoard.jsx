@@ -75,18 +75,18 @@ const ALL_SKILLS = [
   { name: "Figma", category: "Tools", level: "Intermediate", tags: [] },
 ];
 
-function levelToPercent(level) {
+function levelMeta(level) {
   switch (level) {
     case "Expert":
-      return 100;
+      return { label: "Expert", cls: "level-advanced" };
     case "Advanced":
-      return 85;
+      return { label: "Advanced", cls: "level-advanced" };
     case "Intermediate":
-      return 65;
+      return { label: "Intermediate", cls: "level-intermediate" };
     case "Beginner":
-      return 40;
+      return { label: "Beginner", cls: "level-beginner" };
     default:
-      return 50;
+      return { label: level || "Intermediate", cls: "level-intermediate" };
   }
 }
 
@@ -158,30 +158,17 @@ export default function SkillsBoard() {
       <div className="mt-6 grid gap-6">
         {groups.map(([group, items]) => (
           <div key={group} className="card p-5">
-            <div className="mb-3 text-sm font-semibold tracking-wide opacity-70">{group}</div>
-            <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+            <div className="mb-2 text-sm font-semibold tracking-wide opacity-70">{group}</div>
+            <div className="flex flex-wrap gap-2">
               {items.map((s) => {
-                const pct = levelToPercent(s.level);
+                const { label, cls } = levelMeta(s.level);
                 return (
-                  <div key={s.name} className="card relative overflow-hidden p-4">
-                    <div className="absolute inset-x-0 -top-8 h-12 bg-gradient-to-r from-[var(--accent)]/20 via-transparent to-[var(--accent)]/20 blur-md" aria-hidden />
-                    <div className="relative">
-                      <div className="flex items-center justify-between gap-2">
-                        <div className="font-medium">{s.name}</div>
-                        <span className="badge text-xs">{s.level}</span>
-                      </div>
-                      <div className="mt-2 h-2 w-full rounded-full bg-neutral-200/60 dark:bg-neutral-800">
-                        <div className="h-2 rounded-full bg-[var(--accent)]" style={{ width: `${pct}%` }} />
-                      </div>
-                      {s.tags?.length ? (
-                        <div className="mt-2 flex flex-wrap gap-1 text-[10px] opacity-80">
-                          {s.tags.map((t) => (
-                            <span key={t} className="badge">{t}</span>
-                          ))}
-                        </div>
-                      ) : null}
-                    </div>
-                  </div>
+                  <span key={s.name} className="skill-chip">
+                    {s.name}
+                    <span className={`level-badge ${cls}`}>{label}</span>
+                    {s.tags?.includes('trending') && <span className="trend-badge">Trending</span>}
+                    {s.tags?.includes('core') && <span className="core-badge">Core</span>}
+                  </span>
                 );
               })}
             </div>
@@ -191,4 +178,3 @@ export default function SkillsBoard() {
     </div>
   );
 }
-

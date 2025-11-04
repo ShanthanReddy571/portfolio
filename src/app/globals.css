@@ -360,3 +360,28 @@ html.dark .chip--active { background-color: var(--accent); color: var(--accent-c
 }
 .safe-x { padding-left: max(1rem, var(--safe-left)); padding-right: max(1rem, var(--safe-right)); }
 .safe-bottom { padding-bottom: max(0px, var(--safe-bottom)); }
+
+/* ---------- Skills UI ---------- */
+.skill-chip {
+  @apply inline-flex items-center gap-2 rounded-full border px-3 py-1 text-sm;
+  border-color: var(--border);
+  color: var(--fg);
+  background-color: transparent;
+}
+.skill-chip:hover { @apply bg-neutral-100; }
+html.dark .skill-chip:hover { background-color: #1f2937; }
+.skill-chip .star { color: var(--accent); opacity: .9; }
+.level-dots { display: inline-flex; gap: 2px; }
+.level-dots .dot { width: 6px; height: 6px; border-radius: 9999px; background: #cbd5e1; }
+html.dark .level-dots .dot { background: #334155; }
+.level-dots .dot.filled { background: var(--accent); }
+
+/* New badges for skill level + trending */
+.level-badge { @apply inline-flex items-center rounded-full px-2 py-0.5 text-[10px] font-medium; }
+.level-advanced { background-color: var(--accent); color: var(--accent-contrast); }
+.level-intermediate { background-color: #e5e7eb; color: #111827; }
+html.dark .level-intermediate { background-color: #374151; color: #e5e7eb; }
+.level-beginner { background-color: #f3f4f6; color: #1f2937; }
+html.dark .level-beginner { background-color: #1f2937; color: #e5e7eb; }
+.trend-badge { @apply inline-flex items-center rounded-full px-2 py-0.5 text-[10px] font-medium border; border-color: var(--accent); color: var(--accent); }
+.core-badge { @apply inline-flex items-center rounded-full px-2 py-0.5 text-[10px] font-medium border; border-color: var(--border); color: var(--muted); }

@@ -7,55 +7,63 @@ import ExperienceCard from "../../components/ExperienceCard";
 
 const EXPERIENCES = [
   {
-    company: "Bosch Global Software Technologies",
-    role: "Software Engineer I",
-    location: "India",
-    period: "Jan 2023 – Jan 2024",
-    category: "Work",
+    company: "University at Buffalo",
+    role: "Graduate Teaching Assistant — Data Structures & Algorithms",
+    location: "New York, USA",
+    period: "Jan 2025 – May 2025",
+    start: "2025-01-01",
+    end: "2025-05-31",
+    category: "Teaching",
     highlights: [
-      "Developed core modules for a Connected Associate retail app on Android/tablet, enabling real‑time lane management across stores.",
-      "Led E2E testing (manual, unit, automated) with CI to keep 99.9% uptime and consistent cross‑device UX.",
-      "Adopted MQTT for lightweight real‑time messaging between clients and backend services, reducing sync latency by ~40%.",
-      "Implemented OAuth 2.0 + OpenID Connect flows, streamlining secure access for 2k+ associates.",
+      "Delivered recitations and office hours for 120+ students; covered algorithm design (divide & conquer, greedy, DP) and core data structures (trees, heaps, union‑find, graphs).",
+      "Built a Python autograder with sandboxing (subprocess/ptrace) and per‑test resource limits; integrated with a C++ harness to check asymptotic behavior under adversarial inputs.",
+      "Authored reference solutions and unit tests; added static analysis (flake8/clang‑tidy) and plagiarism signals (AST hashing + token‑level similarity).",
+      "Automated grading/feedback pipeline with GitHub Actions and artifacts; reduced turnaround and regrade requests.",
     ],
-    tech: ["React Native", "TypeScript", "Redux", "Jest", "Cucumber", "Kubernetes", "Docker", "MQTT", "OpenID"],
+    tech: ["Python", "C++", "GitHub Actions", "pytest", "clang‑tidy"],
     metrics: [
-      { label: "Uptime", value: "99.9%" },
-      { label: "Latency", value: "−40%" },
-      { label: "Users", value: "2k+" },
+      { label: "Students", value: "120+" },
+      { label: "Turnaround", value: "<24h" },
     ],
   },
   {
-    company: "Samsung",
+    company: "Bosch Global Software Technologies",
+    role: "Software Engineer — Test Bench Booking Platform",
+    location: "India",
+    period: "Jan 2023 – Jan 2024",
+    start: "2023-01-01",
+    end: "2024-01-31",
+    category: "Work",
+    highlights: [
+      "Designed and delivered a React/Next.js internal portal for booking hardware test benches across labs and time zones; responsive, PWA‑ready UI for desktop/mobile.",
+      "Implemented a conflict‑free reservation engine (interval trees + fairness policy) with waitlists, approvals, and recurring bookings; ICS export + calendar integration.",
+      "Built Node.js/Express APIs with PostgreSQL/Prisma, RBAC + SSO; added Redis‑backed rate limiting and job queues for reminders and expirations.",
+      "Instrumented usage analytics and audit trails; CI/CD with GitHub Actions, Playwright e2e suite, and Dockerized deploys.",
+    ],
+    tech: ["React", "Next.js", "TypeScript", "Node.js", "Express", "PostgreSQL", "Prisma", "Redis", "Playwright", "GitHub Actions", "Docker"],
+    metrics: [
+      { label: "Conflicts", value: "−85%" },
+      { label: "Booking time", value: "−60%" },
+      { label: "Utilization", value: "+25%" },
+    ],
+  },
+  {
+    company: "Imaging Systems Lab (Research Internship)",
     role: "Research Intern",
     location: "Hyderabad, India",
     period: "Jun 2021 – May 2022",
+    start: "2021-06-01",
+    end: "2022-05-31",
     category: "Research",
     highlights: [
-      "Built panoramic image stitching with keypoint detection and RANSAC‑based homography using perspective projection.",
-      "Optimized feature matching and blending; reduced stitching latency by ~40% and improved alignment to ~92% of image pairs.",
-      "Prototyped real‑time preview for high‑resolution camera input, improving user experience.",
+      "Developed self‑supervised pretraining (SimCLR/MAE variants) for surface‑defect detection with limited labels; fine‑tuned ViT/ResNet backbones.",
+      "Built an active‑learning loop and dataset curation tooling; automated augmentations and hard‑example mining.",
+      "Optimized inference with CUDA/TensorRT and mixed precision; deployed a batched service for real‑time inspection.",
     ],
-    tech: ["OpenCV", "SIFT", "FLANN", "Homography", "CUDA", "Image Blending", "RANSAC"],
+    tech: ["PyTorch", "CUDA", "TensorRT", "OpenCV", "ViT", "SimCLR"],
     metrics: [
-      { label: "Alignment", value: "~92%" },
-      { label: "Latency", value: "−40%" },
-    ],
-  },
-  {
-    company: "University at Buffalo",
-    role: "Graduate Teaching Assistant",
-    location: "New York, USA",
-    period: "Jan 2025 – May 2025",
-    category: "Teaching",
-    highlights: [
-      "Held weekly office hours for 100+ students; assisted debugging of Python‑based ML models (CNNs, ResNet, ViT).",
-      "Redesigned the course site’s frontend to improve responsiveness and ~60% faster page loads across devices.",
-    ],
-    tech: ["React", "Python", "PyTorch", "ViT", "ResNet"],
-    metrics: [
-      { label: "Students", value: "100+" },
-      { label: "Load time", value: "−60%" },
+      { label: "mAP", value: "+7 pts" },
+      { label: "Latency", value: "−35%" },
     ],
   },
 ];
@@ -64,10 +72,10 @@ const CATEGORIES = ["All", "Work", "Research", "Teaching"];
 
 export default function ExperiencePage() {
   const [selected, setSelected] = useState("All");
-  const items = useMemo(
-    () => (selected === "All" ? EXPERIENCES : EXPERIENCES.filter((e) => e.category === selected)),
-    [selected]
-  );
+  const items = useMemo(() => {
+    const pool = selected === "All" ? EXPERIENCES : EXPERIENCES.filter((e) => e.category === selected);
+    return [...pool].sort((a, b) => new Date(b.start) - new Date(a.start));
+  }, [selected]);
 
   return (
     <Section
@@ -85,7 +93,7 @@ export default function ExperiencePage() {
       <div className="hero-wrap">
         <div className="kicker">Career journey</div>
         <p className="mt-3 max-w-3xl text-sm opacity-85">
-          A blend of full‑stack engineering, research in computer vision, and hands‑on teaching. Filter by type to focus on what you care about.
+          A blend of full-stack engineering, research in computer vision, and hands-on teaching. Filter by type to focus on what you care about.
         </p>
         <div className="mt-4 flex flex-wrap gap-2">
           {CATEGORIES.map((c) => (
@@ -114,4 +122,3 @@ export default function ExperiencePage() {
     </Section>
   );
 }
-

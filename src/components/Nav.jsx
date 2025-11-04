@@ -19,9 +19,9 @@ export default function Nav() {
       <nav className="container mx-auto max-w-6xl flex items-center gap-3 py-3 px-4 sm:px-6 safe-x">
         <div className="flex items-center gap-3">
           <Link href="/" aria-label="Go home"><Logo /></Link>
-          <div className="hidden sm:block leading-tight">
-            <Link href="/" className="font-semibold tracking-tight">Shanthan Reddy Singadi</Link>
-            <div className="text-xs text-neutral-500 dark:text-neutral-400">Full-Stack | Next.js | TypeScript</div>
+          <div className="leading-tight max-w-[55vw] sm:max-w-none">
+            <Link href="/" className="font-semibold tracking-tight text-sm sm:text-base whitespace-nowrap truncate">Shanthan Reddy Singadi</Link>
+            <div className="text-[10px] sm:text-xs text-neutral-500 dark:text-neutral-400 whitespace-nowrap truncate">Full-Stack | Next.js | TypeScript</div>
           </div>
         </div>
 
